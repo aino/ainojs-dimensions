@@ -8,6 +8,7 @@ var getValue = function(elem, what) {
   var val = Math.ceil( ("getBoundingClientRect" in elem) ?
     elem.getBoundingClientRect()[ low ] :
     elem[ 'offset'+what ]
+  )
 
   if ( !val && comp )
     val = comp(elem, null)[ low ].replace('px','')
