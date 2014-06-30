@@ -1,0 +1,21 @@
+{
+  "name": "ainojs-dimensions",
+  "version": "1.0.0",
+  "description": "Get computed dimensions of a DOM Element",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aino/ainojs-dimensions"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aino/ainojs-dimensions/issues"
+  },
+  "homepage": "https://github.com/aino/ainojs-dimensions",
+  "main": "dimensions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aino",
+  "devDependencies": {},
+  "dependencies": {}
+}
