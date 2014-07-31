@@ -10,7 +10,7 @@ var getValue = function(elem, what) {
     elem[ 'offset'+what ]
   )
 
-  if ( !val && comp )
+  if ( (typeof val == 'undefined' || isNaN(val)) && comp )
     val = comp(elem, null)[ low ].replace('px','')
 
   return parseInt(val, 10)
