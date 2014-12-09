@@ -1,7 +1,4 @@
-
 var comp = window.getComputedStyle
-
-var wh = [0,0]
 
 var getValue = function(elem, what) {
   var low = what.toLowerCase()
