@@ -16,6 +16,8 @@ var getValue = function(elem, what) {
 module.exports = function(elem) {
   return {
     width: getValue(elem, 'Width'),
-    height: getValue(elem, 'Height')
+    height: getValue(elem, 'Height'),
+    top: getValue(elem, 'Top'),
+    bottom: getValue(elem, 'Bottom')
   }
 }
