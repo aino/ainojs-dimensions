@@ -1,23 +1,30 @@
-var comp = window.getComputedStyle
+var isNode = typeof window == 'undefined'
 
-var getValue = function(elem, what) {
-  var low = what.toLowerCase()
-  var val = Math.ceil( ("getBoundingClientRect" in elem) ?
-    elem.getBoundingClientRect()[ low ] :
-    elem[ 'offset'+what ]
-  )
+var Dimensions = function(elem) {
+  this.elem = elem
+  this.rect = "getBoundingClientRect" in elem ? elem.getBoundingClientRect() : false
+  this.comp = !isNode && 'getComputedStyle' in window ? window.getComputedStyle : false
+}
 
-  if ( (typeof val == 'undefined' || isNaN(val)) && comp )
-    val = comp(elem, null)[ low ].replace('px','')
+Dimensions.prototype.getValue = function(type) {
+  if (isNode)
+    return 0
+
+  var low = type.toLowerCase()
+  var val = this.rect ? this.rect[low] : this.elem['offset'+type]
+
+  if ( (typeof val == 'undefined' || isNaN(val)) && this.comp )
+    val = this.comp(this.elem, null)[ low ].replace('px','')
 
   return parseInt(val, 10)
 }
 
 module.exports = function(elem) {
+  var dim = new Dimensions(elem)
   return {
-    width: getValue(elem, 'Width'),
-    height: getValue(elem, 'Height'),
-    top: getValue(elem, 'Top'),
-    bottom: getValue(elem, 'Bottom')
+    width: dim.getValue('Width'),
+    height: dim.getValue('Height'),
+    top: dim.getValue('Top'),
+    left: dim.getValue('Left')
   }
 }
