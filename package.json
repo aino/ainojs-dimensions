@@ -1,6 +1,6 @@
 {
   "name": "ainojs-dimensions",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Get computed dimensions of a DOM Element",
   "repository": {
     "type": "git",
